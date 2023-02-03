@@ -22,17 +22,6 @@ function SignUp() {
   // nav
   const navigate = useNavigate();
 
-  const fail = () =>
-    toast(" Inscription échouée", {
-      duration: 700,
-      position: "top-center",
-      style: {
-        background: "#121640",
-        color: "#fff",
-      },
-      icon: "❌ ",
-    });
-
   const success = () =>
     toast(" Inscription réussie!", {
       duration: 1500,
@@ -64,14 +53,12 @@ function SignUp() {
     };
     e.preventDefault();
     // on créé et on redirige
-    fetch("http://localhost:5000/api/register", requestOptions)
-      .then(() => {
-        success();
-        setTimeout(() => {
-          navigate("/login");
-        }, "1000");
-      })
-      .catch(fail());
+    fetch("http://localhost:5000/api/register", requestOptions).then(() => {
+      success();
+      setTimeout(() => {
+        navigate("/login");
+      }, "1500");
+    });
   };
 
   return (
